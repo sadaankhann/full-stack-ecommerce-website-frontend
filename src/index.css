@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.firstDiv::before{
+    content:  "";
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    right: -50px;
+    bottom: 0;
+    height: 100%;
+    width: 50%;
+    transform: skew(30deg);
+    background-color: rgba(0, 90, 222, 1);
+}
