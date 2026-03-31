@@ -15,18 +15,20 @@ import Footer from './Homepage/Footer'
 
 const Homepage = () => {
   return (
-    <div className='w-full h-full'>
-      <Nav_1 />
-      <Nav_2 />
-      <div className='flex flex-col items-center w-[80%] h-full mx-auto bg-gray-50'>
-        <HeroSection />
-        <DealsAndOffers />
-        <HomeAndOutdoor />
-        <ConsumerElectronic />
-        <Section5 />
-        <RecommendedItems />
-        <ExtraServices />
-        <SuppliersByRegion />
+    <div className='w-full h-full bg-gray-100'>
+      <div className='flex flex-col justify-center items-center'>
+        <Nav_1 />
+        <Nav_2 />
+        <div className='flex flex-col items-center w-[92%] h-full mx-auto bg-gray-50'>
+          <HeroSection />
+          <DealsAndOffers />
+          <HomeAndOutdoor />
+          <ConsumerElectronic />
+          <Section5 />
+          <RecommendedItems />
+          <ExtraServices />
+          <SuppliersByRegion />
+        </div>
       </div>
       <Newsletter />
       <FooterMenu />

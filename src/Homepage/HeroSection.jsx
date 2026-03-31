@@ -7,7 +7,7 @@ const HeroSection = () => {
     const [items, setItems] = useState(["Automobiles", "Clothes and wear", "Home interiors", "Comouter and tech", "Tools, equipments", "Sports and outdoor", "Animals and pets", "Machinery tools", "More category"]);
 
     return (
-        <div className='flex h-[480px] w-full'>
+        <div className='flex h-[480px] w-full border border-gray-300 rounded-sm'>
             <div className='h-full w-[23%]'>
                 <ul className='flex flex-col list-none p-4 gap-2'>
                     {items.map((item, index) => (

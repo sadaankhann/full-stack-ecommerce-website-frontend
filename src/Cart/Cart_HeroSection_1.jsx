@@ -36,8 +36,11 @@ const Cart_HeroSection_1 = () => {
                     credentials: 'include'
                 })
                 const response = await data.json();
-                setCart(response.data);
-                console.log("Cart", response.data);
+                if (!response.isLoggedIn) {
+                    window.location.href = '/login'
+                } else {
+                    setCart(response.data);
+                }
             } catch (err) {
                 console.error(err);
             }

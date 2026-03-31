@@ -17,14 +17,14 @@ const AllProducts = ({ children }) => {
         const gettingCartData = async () => {
             const data = await fetch('http://localhost:5000/cart', {method: 'GET', credentials : 'include'})
             const response = await data.json();
-            setCart(response.data);
+            setCart(response.data || []);
         }
         gettingCartData();
 
         const gettingLikedData = async () => {
             const data = await fetch('http://localhost:5000/likedproducts', {method: 'GET', credentials : 'include'})
             const response = await data.json();
-            setLikedProducts(response.data);
+            setLikedProducts(response.data || []);
         }
         gettingLikedData();
 
@@ -63,13 +63,13 @@ const AllProducts = ({ children }) => {
             const sendingData = await fetch('http://localhost:5000/removefromcart', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Deleted Successful!") }
-            setCart(sendingDataJSON.data);
+            setCart(sendingDataJSON.data || []);
             console.log(sendingDataJSON.data);
         } else {
             const sendingData = await fetch('http://localhost:5000/addingintocart', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Added Successful!") }
-            setCart(sendingDataJSON.data);
+            setCart(sendingDataJSON.data || []);
         }
     }
 
@@ -81,12 +81,12 @@ const AllProducts = ({ children }) => {
             const sendingData = await fetch('http://localhost:5000/removefromliked', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Deleted Successful!") }
-            setLikedProducts(sendingDataJSON.data);
+            setLikedProducts(sendingDataJSON.data || []);
         } else {
             const sendingData = await fetch('http://localhost:5000/addingintoliked', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Added Successful!") }
-            setLikedProducts(sendingDataJSON.data);
+            setLikedProducts(sendingDataJSON.data || []);
         }
     }
 
