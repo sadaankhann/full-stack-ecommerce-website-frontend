@@ -9,7 +9,7 @@ const RecommendedItems = () => {
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const response = await fetch(`${API}/api/featuredProducts`);
+        const response = await fetch(`${API}/featuredProducts`);
         const data = await response.json();
         console.log(data);
         setFeatured(data);

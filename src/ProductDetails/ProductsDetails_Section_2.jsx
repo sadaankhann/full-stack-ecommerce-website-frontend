@@ -21,7 +21,7 @@ const ProductsDetails_Section_2 = () => {
     useEffect(() => {
 
         const fetchingProducts = async () => {
-            const allProducts = await fetch(`${API}/api/allProducts`);
+            const allProducts = await fetch(`${API}/allProducts`);
             const response = await allProducts.json();
             setAllProducts(response);
             setYouMayLike(response.slice(1, 6));

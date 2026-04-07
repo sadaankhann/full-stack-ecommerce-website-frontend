@@ -31,7 +31,7 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const sendingData = await fetch(`${API}/api/signup`, {
+        const sendingData = await fetch(`${API}/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials : 'include',
