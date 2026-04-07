@@ -27,7 +27,7 @@ const LoginAdmin = () => {
             }, 3000);
         }
 
-        const sendingData = await fetch(`${API}/admin/login`, {
+        const sendingData = await fetch(`${API}/api/adminLogin`, {
             method: 'POST',
             credentials : 'include',
             headers: { 'Content-Type': 'application/json' },

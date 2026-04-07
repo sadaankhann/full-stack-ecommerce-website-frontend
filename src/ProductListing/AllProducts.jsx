@@ -17,14 +17,14 @@ const AllProducts = ({ children }) => {
 
     useEffect(() => {
         const gettingCartData = async () => {
-            const data = await fetch(`${API}/cart`, {method: 'GET', credentials : 'include'})
+            const data = await fetch(`${API}/api/cart`, {method: 'GET', credentials : 'include'})
             const response = await data.json();
             setCart(response.data || []);
         }
         gettingCartData();
 
         const gettingLikedData = async () => {
-            const data = await fetch(`${API}/likedproducts`, {method: 'GET', credentials : 'include'})
+            const data = await fetch(`${API}/likedProducts`, {method: 'GET', credentials : 'include'})
             const response = await data.json();
             setLikedProducts(response.data || []);
         }
@@ -58,17 +58,17 @@ const AllProducts = ({ children }) => {
     const Posts = Products.slice(firstPostIndex, lastPostIndex);
 
     const CartData = async (id) => {
-        const data = await fetch(`${API}/cart`, { method: 'GET', credentials: 'include' });
+        const data = await fetch(`${API}/api/cart`, { method: 'GET', credentials: 'include' });
         const response = await data.json();
         const check = response.data.some(item => item.id == id);
         if (check) {
-            const sendingData = await fetch(`${API}/removefromcart`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
+            const sendingData = await fetch(`${API}/api/removeFromCart`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Deleted Successful!") }
             setCart(sendingDataJSON.data || []);
             console.log(sendingDataJSON.data);
         } else {
-            const sendingData = await fetch(`${API}/addingintocart`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
+            const sendingData = await fetch(`${API}/api/addingIntoCart`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Added Successful!") }
             setCart(sendingDataJSON.data || []);
@@ -76,16 +76,16 @@ const AllProducts = ({ children }) => {
     }
 
     const LikedData = async (id) => {
-        const data = await fetch(`${API}/likedproducts`, { method: 'GET', credentials: 'include' });
+        const data = await fetch(`${API}/api/likedProducts`, { method: 'GET', credentials: 'include' });
         const response = await data.json();
         const check = response.data.includes(id);
         if (check) {
-            const sendingData = await fetch(`${API}/removefromliked`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
+            const sendingData = await fetch(`${API}/removeFromLiked`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Deleted Successful!") }
             setLikedProducts(sendingDataJSON.data || []);
         } else {
-            const sendingData = await fetch(`${API}/addingintoliked`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
+            const sendingData = await fetch(`${API}/addingIntoLiked`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ id }) });
             const sendingDataJSON = await sendingData.json();
             if (sendingDataJSON.success) { console.log("Added Successful!") }
             setLikedProducts(sendingDataJSON.data || []);

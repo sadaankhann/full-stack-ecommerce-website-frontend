@@ -11,7 +11,7 @@ const ProductsArray = ({ children }) => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const response = await fetch(`${API}/allproducts`, {method : 'GET', credentials : 'include'});
+                const response = await fetch(`${API}/api/allProducts`, {method : 'GET', credentials : 'include'});
                 const data = await response.json();
 
                 const shuffledArray = [...data];

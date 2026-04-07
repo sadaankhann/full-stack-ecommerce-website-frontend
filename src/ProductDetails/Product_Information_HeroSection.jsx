@@ -35,7 +35,7 @@ const Product_Information_HeroSection = () => {
   useEffect(() => {
     const FetchingProducts = async () => {
       try {
-        const allProducts = await fetch(`${API}/allproducts`);
+        const allProducts = await fetch(`${API}/api/allProducts`);
         const response = await allProducts.json();
         setProducts(response);
 

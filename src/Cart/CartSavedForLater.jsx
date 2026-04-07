@@ -9,7 +9,7 @@ const CartSavedForLater = () => {
 
     useEffect(() => {
         const gettingProducts = async () => {
-            const data = await fetch(`${API}/allProducts`, { method: 'GET', credentials: 'include' })
+            const data = await fetch(`${API}/api/allProducts`, { method: 'GET', credentials: 'include' })
             const response = await data.json();
             setProducts(response.slice(0, 4));
         }
