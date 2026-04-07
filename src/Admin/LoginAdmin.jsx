@@ -4,6 +4,8 @@ import { Info } from "lucide-react";
 
 const LoginAdmin = () => {
 
+    const API = import.meta.env.VITE_API;
+
     const [formData, setFormData] = useState({email:'',password:'',contactNo:''});
     const [captchaValue, setCaptchaValue] = useState(null);
 
@@ -25,7 +27,7 @@ const LoginAdmin = () => {
             }, 3000);
         }
 
-        const sendingData = await fetch('http://localhost:5000/admin/login', {
+        const sendingData = await fetch(`${API}/admin/login`, {
             method: 'POST',
             credentials : 'include',
             headers: { 'Content-Type': 'application/json' },

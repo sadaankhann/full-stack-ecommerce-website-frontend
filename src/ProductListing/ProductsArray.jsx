@@ -4,12 +4,14 @@ export const ThemeContext = createContext();
 
 const ProductsArray = ({ children }) => {
 
+    const API = import.meta.env.VITE_API;
+
     const [allProducts, setAllProducts] = useState([]);
 
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/allproducts', {method : 'GET', credentials : 'include'});
+                const response = await fetch(`${API}/allproducts`, {method : 'GET', credentials : 'include'});
                 const data = await response.json();
 
                 const shuffledArray = [...data];

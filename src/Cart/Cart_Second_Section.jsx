@@ -2,6 +2,7 @@ import { LockKeyhole, Truck, MessageSquareText } from 'lucide-react'
 import React from 'react'
 
 const Cart_Second_Section = () => {
+
     return (
         <div className='flex justify-between h-[130px] w-full'>
             <div className='flex items-center gap-2'>

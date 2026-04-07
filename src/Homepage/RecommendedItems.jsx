@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 const RecommendedItems = () => {
+
+  const API = import.meta.env.VITE_API;
+
   const [featured, setFeatured] = useState([]);
 
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/featuredproducts');
+        const response = await fetch(`${API}/featuredproducts`);
         const data = await response.json();
         console.log(data);
         setFeatured(data);

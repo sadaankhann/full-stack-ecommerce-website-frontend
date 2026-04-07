@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 
 const ProductsDetails_Section_2 = () => {
 
+    const API = import.meta.env.VITE_API;
+
     const [Options, setOptions] = useState(['Description', 'Reviews', 'Shipping', 'About Seller']);
     const [RequiredData, setRequiredData] = useState({})
     const [activeIndex, setActiveIndex] = useState(0);
@@ -19,7 +21,7 @@ const ProductsDetails_Section_2 = () => {
     useEffect(() => {
 
         const fetchingProducts = async () => {
-            const allProducts = await fetch('http://localhost:5000/allproducts');
+            const allProducts = await fetch(`${API}/allproducts`);
             const response = await allProducts.json();
             setAllProducts(response);
             setYouMayLike(response.slice(1, 6));

@@ -2,11 +2,14 @@ import { ShoppingCart } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
 
 const CartSavedForLater = () => {
+
+    const API = import.meta.env.VITE_API;
+    
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const gettingProducts = async () => {
-            const data = await fetch('http://localhost:5000/allProducts', { method: 'GET', credentials: 'include' })
+            const data = await fetch(`${API}/allProducts`, { method: 'GET', credentials: 'include' })
             const response = await data.json();
             setProducts(response.slice(0, 4));
         }

@@ -5,6 +5,8 @@ import { Check, Dot, Globe, Heart, MessageSquareText, Shield, ShieldCheck } from
 
 const Product_Information_HeroSection = () => {
 
+  const API = import.meta.env.VITE_API;
+
   const params = useParams();
 
   const [Products, setProducts] = useState([]);
@@ -33,7 +35,7 @@ const Product_Information_HeroSection = () => {
   useEffect(() => {
     const FetchingProducts = async () => {
       try {
-        const allProducts = await fetch('http://localhost:5000/allproducts');
+        const allProducts = await fetch(`${API}/allproducts`);
         const response = await allProducts.json();
         setProducts(response);
 

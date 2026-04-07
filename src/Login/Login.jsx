@@ -7,6 +7,8 @@ import { Info } from 'lucide-react'
 
 const Login = () => {
 
+    const API = import.meta.env.VITE_API;
+
     const [errorText, setErrorText] = useState('');
 
     const [showErrorMessage, setShowErrorMessage] = useState(false);
@@ -26,7 +28,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const sendingData = await fetch('http://localhost:5000/login', {
+        const sendingData = await fetch(`${API}/login`, {
             method: 'POST',
             credentials : 'include',
             headers: { 'Content-Type': 'application/json' },
