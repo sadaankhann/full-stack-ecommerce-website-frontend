@@ -18,7 +18,7 @@ const Cart_HeroSection_1 = () => {
     useEffect(() => {
         const fetchingAllTheProducts = async () => {
             try {
-                const data = await fetch(`${VITE_API}/allProducts`, {
+                const data = await fetch(`${API}/allProducts`, {
                     method: 'GET',
                     credentials: 'include'
                 })
