@@ -18,7 +18,7 @@ const Cart_HeroSection_1 = () => {
     useEffect(() => {
         const fetchingAllTheProducts = async () => {
             try {
-                const data = await fetch(`${API}/allProducts`, {
+                const data = await fetch(`${API}/api/allProducts`, {
                     method: 'GET',
                     credentials: 'include'
                 })
@@ -33,7 +33,7 @@ const Cart_HeroSection_1 = () => {
 
         const fetchingAllTheCartProducts = async () => {
             try {
-                const data = await fetch(`${API}/cart`, {
+                const data = await fetch(`${API}/api/cart`, {
                     method: 'GET',
                     credentials: 'include'
                 })
@@ -63,7 +63,7 @@ const Cart_HeroSection_1 = () => {
     useEffect(() => setPriceOfCartProducts(RequiredProducts.reduce((acc, curVal) => acc + curVal.price, 0)), [RequiredProducts])
 
     const handleQualityChange = async (value, id) => {
-        const sendingData = await fetch(`${API}/changingquantity`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ value, id }) })
+        const sendingData = await fetch(`${API}/api/changingquantity`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ value, id }) })
         const response = await sendingData.json();
         setCart(response.data);
     };
