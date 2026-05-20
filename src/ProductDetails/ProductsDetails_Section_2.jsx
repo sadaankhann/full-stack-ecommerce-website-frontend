@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const ProductsDetails_Section_2 = () => {
 
-    const API = import.meta.env.VITE_API;
+    const API = import.meta.env.VITE_API || '';
 
     const [Options, setOptions] = useState(['Description', 'Reviews', 'Shipping', 'About Seller']);
     const [RequiredData, setRequiredData] = useState({})

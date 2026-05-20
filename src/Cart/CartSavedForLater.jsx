@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 const CartSavedForLater = () => {
 
-    const API = import.meta.env.VITE_API;
+    const API = import.meta.env.VITE_API || '';
     
     const [products, setProducts] = useState([]);
 

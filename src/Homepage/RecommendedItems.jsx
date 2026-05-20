@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const RecommendedItems = () => {
 
-  const API = import.meta.env.VITE_API;
+  const API = import.meta.env.VITE_API || '';
 
   const [featured, setFeatured] = useState([]);
 

@@ -4,7 +4,7 @@ import { Info } from "lucide-react";
 
 const LoginAdmin = () => {
 
-    const API = import.meta.env.VITE_API;
+    const API = import.meta.env.VITE_API || '';
 
     const [formData, setFormData] = useState({email:'',password:'',contactNo:''});
     const [captchaValue, setCaptchaValue] = useState(null);

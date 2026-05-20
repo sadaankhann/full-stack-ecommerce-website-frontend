@@ -10,7 +10,7 @@ export const ViewDetails = createContext();
 
 const AllProducts = ({ children }) => {
 
-    const API = import.meta.env.VITE_API;
+    const API = import.meta.env.VITE_API || '';
 
     const [Cart, setCart] = useState([]);
     const [likedProducts, setLikedProducts] = useState([])

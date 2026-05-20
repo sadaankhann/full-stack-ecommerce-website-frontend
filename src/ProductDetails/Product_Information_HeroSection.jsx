@@ -5,7 +5,7 @@ import { Check, Dot, Globe, Heart, MessageSquareText, Shield, ShieldCheck } from
 
 const Product_Information_HeroSection = () => {
 
-  const API = import.meta.env.VITE_API;
+  const API = import.meta.env.VITE_API || '';
 
   const params = useParams();
 

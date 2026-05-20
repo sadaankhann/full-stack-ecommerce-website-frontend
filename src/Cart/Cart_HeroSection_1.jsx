@@ -5,7 +5,7 @@ import ProductDetails_Section_3 from '../ProductDetails/ProductDetails_Section_3
 
 const Cart_HeroSection_1 = () => {
 
-    const API = import.meta.env.VITE_API;
+    const API = import.meta.env.VITE_API || '';
 
     const [Cart, setCart] = useState([]);
 

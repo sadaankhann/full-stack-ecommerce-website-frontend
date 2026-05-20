@@ -7,7 +7,7 @@ import { Info } from 'lucide-react'
 
 const Login = () => {
 
-    const API = import.meta.env.VITE_API;
+    const API = import.meta.env.VITE_API || '';
 
     const [errorText, setErrorText] = useState('');
 
