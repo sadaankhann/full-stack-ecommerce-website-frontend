@@ -25,7 +25,7 @@ const Cart_HeroSection_1 = () => {
                 const response = await data.json();
                 setAllProducts(response);
             } catch (err) {
-                console.error(err);
+                console.log(err);
             }
         }
 
@@ -44,7 +44,7 @@ const Cart_HeroSection_1 = () => {
                     setCart(response.data);
                 }
             } catch (err) {
-                console.error(err);
+                console.log(err);
             }
         }
         fetchingAllTheCartProducts();
@@ -53,7 +53,7 @@ const Cart_HeroSection_1 = () => {
     useEffect(() => {
         setRequiredProducts(allProducts
             .filter((elem) => Cart.some((item) => item.id == elem._id))
-            .map((elem, idx) => {
+            .map((elem) => {
                 const cartItem = Cart.find((item) => item.id == elem._id)
                 return { ...elem, price: Number(cartItem.quantity) * elem.price, quantity: Number(cartItem.quantity) }
             })
@@ -63,10 +63,18 @@ const Cart_HeroSection_1 = () => {
     useEffect(() => setPriceOfCartProducts(RequiredProducts.reduce((acc, curVal) => acc + curVal.price, 0)), [RequiredProducts])
 
     const handleQualityChange = async (value, id) => {
-        const sendingData = await fetch(`${API}/api/changingquantity`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ value, id }) })
+        const sendingData = await fetch(`${API}/api/changingQuantity`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ value, id }) })
         const response = await sendingData.json();
         setCart(response.data);
     };
+
+    // Removing From Cart
+    
+    const removingFromCart = async(id) =>{
+        const sendingData = await fetch(`${API}/api/removeFromCart`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({id}) });
+        const sendingDataJSON = await sendingData.json();
+        if (sendingDataJSON.success) {setCart(sendingDataJSON.data || [])};
+    }
 
     return (
         <div>
@@ -87,9 +95,7 @@ const Cart_HeroSection_1 = () => {
                                             <div><p className='text-gray-300'>Size: Medium, Color: Black, Material: Plastic</p></div>
                                             <div><p className='text-gray-300'>Seller: Artel Market</p></div>
                                             <div className="flex gap-4 mt-4 buttons">
-                                                <button className='p-1 pl-3 pr-3 border border-gray-300 rounded-sm text-red-600' onClick={() => {
-                                                    setCart(prevCart => prevCart.filter(item => item.id !== elem._id));
-                                                }}>Remove</button>
+                                                <button className='p-1 pl-3 pr-3 border border-gray-300 rounded-sm text-red-600' onClick={() => removingFromCart(elem._id)}>Remove</button>
                                                 <button className='p-1 pl-3 pr-3 border border-gray-300 rounded-sm text-blue-600'>Save for later</button>
                                             </div>
                                         </div>
@@ -103,7 +109,7 @@ const Cart_HeroSection_1 = () => {
                                         <div className='flex items-center justify-center h-[30px] w-[100px] relative border mr-3'>
                                             <div>
                                                 <span className='absolute left-0 left-4 top-0'>Qty: </span>
-                                                <select value={elem.quantity} defaultValue={1} onChange={(e) => {
+                                                <select defaultValue={1} value={elem.quantity} onChange={(e) => {
                                                     handleQualityChange(e.target.value, elem._id);
 
                                                 }} className='outline-none ml-10' name="quantity">

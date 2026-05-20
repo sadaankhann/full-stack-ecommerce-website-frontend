@@ -6,11 +6,6 @@ import Footer from './Homepage/Footer'
 
 const Cart = () => {
 
-    const [Cart, setCart] = useState(() => {
-        const data = localStorage.getItem('cartProducts');
-        return (data) ? JSON.parse(data) : []
-    })
-
     return (
         <div className='h-full w-full bg-gray-100'>
             <Nav />
