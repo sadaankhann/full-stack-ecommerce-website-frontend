@@ -16,7 +16,7 @@ import ProductsArray from './ProductListing/ProductsArray'
 
 const ProductListing = () => {
     return (
-        <div className='min-h-screen h-auto w-full'>
+        <div className='flex flex-col items-center min-h-screen h-auto w-full'>
             <Nav_1 />
             <Nav_2 />
             <div className='flex justify-center w-full h-full'>

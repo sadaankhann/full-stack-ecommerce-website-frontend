@@ -7,7 +7,7 @@ import Footer from './Homepage/Footer'
 const Cart = () => {
 
     return (
-        <div className='h-full w-full bg-gray-100'>
+        <div className='flex flex-col items-center h-full w-full bg-gray-100'>
             <Nav />
             <div className=' w-[80%] mx-auto m-4'>
                 <Cart_HeroSection_1/>

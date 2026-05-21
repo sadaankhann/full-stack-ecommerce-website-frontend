@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
 
@@ -32,10 +33,10 @@ const HeroSection = () => {
                         </div>
                     </div>
                     <div> 
-                        <button className='flex justify-center w-full p-1 flex flex-1 bg-blue-500 text-white rounded-sm'>Join now</button>
+                        <Link to='/signup'><button className='flex justify-center w-full p-1 flex flex-1 bg-blue-500 text-white rounded-sm'>Join now</button></Link>
                     </div>
                     <div>
-                        <button className='flex justify-center w-full p-1 flex bg-gray-500 text-blue-600 bg-white rounded-sm'>Log in</button>
+                        <Link to='/login'><button className='flex justify-center w-full p-1 flex bg-gray-500 text-blue-600 bg-white rounded-sm'>Log in</button></Link>
                     </div>
                 </div>
                 <div className='rounded-sm text-white p-4 text-xl flex justify-center items-center w-full h-[26%] bg-[#F38332]'>

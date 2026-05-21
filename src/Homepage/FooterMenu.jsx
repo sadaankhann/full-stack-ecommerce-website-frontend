@@ -6,7 +6,7 @@ const FooterMenu = () => {
       <div className='flex flex-col justify-center gap-5 h-full w-[20%] '>
         <div className='flex gap-3 items-center'>
           <img src="../src/assets/logo-symbol.png" alt="" className='h-[40px]' />
-          <h2 className='text-xl text-[#8CB7F5] font-bold'>Brand</h2>
+          <h2 className='text-xl text-[#8CB7F5] font-bold'>TechOn</h2>
         </div>
         <p className='text-gray-500 text-sm'>Best information about the company gies here but now lorem ipsum is</p>
         <div className="flex gap-3">

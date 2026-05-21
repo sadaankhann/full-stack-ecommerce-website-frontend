@@ -109,7 +109,7 @@ const Login = () => {
                             Login
                         </button>
                     </form>
-                    <Link to={'/login'} > <p className='text-blue-600 mt-8'>Don't have an account? Sign up now!</p></Link>
+                    <Link to='/signup'><p className='text-blue-600 mt-8'>Don't have an account? Sign up now!</p></Link>
                 </div>
                 {showErrorMessage && <div className={`fixed top-0 right-0 right-10 top-10 reportingmessage w-[200px] h-[30px] bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm flex flex-col justify-center items-center overflow-hidden`}>
                     <p className='flex items-center justify-center gap-1'><Info size={14} />{errorText}</p>

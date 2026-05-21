@@ -6,7 +6,7 @@ const Nav_1 = () => {
             <div className='flex'>
                 <div className="flex justiy-center items-center gap-2 logo">
                     <img src="../src/assets/logo-symbol.png" className='h-[40px]' alt="" />
-                    <h1 className='text-xl text-[#8CB7F5] font-bold'>Brand</h1>
+                    <h1 className='text-xl text-[#8CB7F5] font-bold'>TechOn</h1>
                 </div>
                 <div className="flex justiy-center items-center gap-2 ml-20 searchBar">
                     <form action='/search'>

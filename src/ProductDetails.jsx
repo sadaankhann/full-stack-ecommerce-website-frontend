@@ -9,7 +9,7 @@ import Footer from './Homepage/Footer'
 
 const ProductDetails = () => {
   return (
-    <div className='h-full w-full'>
+    <div className='flex flex-col items-center h-full w-full'>
       <Nav_1 />
       <Nav_2 />
       <div className='flex flex-col justify-center items-center h-full w-full bg-gray-50'>

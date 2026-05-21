@@ -5,7 +5,7 @@ import ProductDetails_Section_3 from '../ProductDetails/ProductDetails_Section_3
 
 const Cart_HeroSection_1 = () => {
 
-    const API = import.meta.env.VITE_API || '';
+    const API = import.meta.env.VITE_API;
 
     const [Cart, setCart] = useState([]);
 
@@ -63,8 +63,9 @@ const Cart_HeroSection_1 = () => {
     useEffect(() => setPriceOfCartProducts(RequiredProducts.reduce((acc, curVal) => acc + curVal.price, 0)), [RequiredProducts])
 
     const handleQualityChange = async (value, id) => {
-        const sendingData = await fetch(`${API}/api/changingQuantity`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ value, id }) })
+        const sendingData = await fetch(`${API}/api/changingQuality`, { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ value, id }) })
         const response = await sendingData.json();
+        console.log(response)
         setCart(response.data);
     };
 
@@ -109,7 +110,7 @@ const Cart_HeroSection_1 = () => {
                                         <div className='flex items-center justify-center h-[30px] w-[100px] relative border mr-3'>
                                             <div>
                                                 <span className='absolute left-0 left-4 top-0'>Qty: </span>
-                                                <select defaultValue={1} value={elem.quantity} onChange={(e) => {
+                                                <select value={elem.quantity} onChange={(e) => {
                                                     handleQualityChange(e.target.value, elem._id);
 
                                                 }} className='outline-none ml-10' name="quantity">
